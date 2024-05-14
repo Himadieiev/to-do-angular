@@ -2,10 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { TodoGroup, TodoItem, TodoStatus } from '../../../interfaces/todo.interface';
-import { ItemDoneComponent } from '../../todo-item/item-done/item-done.component';
-import { ItemInProgressComponent } from '../../todo-item/item-in-progress/item-in-progress.component';
-import { ItemNotStartedComponent } from '../../todo-item/item-not-started/item-not-started.component';
+import { TodoGroup, TodoItem, TodoStatus } from '../../interfaces/todo.interface';
+import { ItemDoneComponent } from '../todo-item/item-done/item-done.component';
+import { ItemInProgressComponent } from '../todo-item/item-in-progress/item-in-progress.component';
+import { ItemNotStartedComponent } from '../todo-item/item-not-started/item-not-started.component';
 
 @Component({
   selector: 'app-todo-group',

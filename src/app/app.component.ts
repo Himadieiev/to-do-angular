@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { TodoGroupComponent } from './components/todo-group/todo-group/todo-group.component';
+import { TodoGroupComponent } from './components/todo-group/todo-group.component';
 import { TodoGroup, TodoItem, TodoStatus } from './interfaces/todo.interface';
 
 @Component({
