@@ -1,11 +1,28 @@
 <div class="group">
   <div class="group__title">
-    <h2>{{ todoGroup.title }}</h2>
+    <div class="group__title-name">
+      @if (isShowTitle) {
+      <h2>{{ todoGroup.title }}</h2>
+      <button (click)="isShowTitle = false" class="button">Edit</button>
+      } @else {
+      <input
+        type="text"
+        class="input"
+        [(ngModel)]="groupTitle"
+        (blur)="enterValue()"
+        (keyup.enter)="enterValue()"
+        placeholder="Enter Title of Group"
+      />
+      }
+    </div>
+
     <div class="group__title-underline"></div>
   </div>
 
   <div class="group__items">
-    <ng-container *ngFor="let item of todoGroup.items; let i = index">
+    <!-- 2 ways using For -->
+
+    <!-- <ng-container *ngFor="let item of todoGroup.items; let i = index">
       <ng-container [ngSwitch]="item.status">
         <app-item-not-started
           [todoItem]="item"
@@ -19,6 +36,21 @@
         ></app-item-in-progress>
         <app-item-done [todoItem]="item" [index]="i" *ngSwitchCase="'done'"></app-item-done>
       </ng-container>
+    </ng-container> -->
+    @for (item of todoGroup.items; track item.title; let i = $index) {
+    <ng-container [ngSwitch]="item.status">
+      <app-item-not-started
+        [todoItem]="item"
+        [index]="i"
+        *ngSwitchCase="'not_started'"
+      ></app-item-not-started>
+      <app-item-in-progress
+        [todoItem]="item"
+        [index]="i"
+        *ngSwitchCase="'in_progress'"
+      ></app-item-in-progress>
+      <app-item-done [todoItem]="item" [index]="i" *ngSwitchCase="'done'"></app-item-done>
     </ng-container>
+    }
   </div>
 </div>
