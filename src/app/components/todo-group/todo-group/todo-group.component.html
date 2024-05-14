@@ -53,5 +53,13 @@
       <app-item-done [todoItem]="item" [index]="i" *ngSwitchCase="'done'"></app-item-done>
     </ng-container>
     }
+
+    <input
+      type="text"
+      class="input"
+      placeholder="Enter ToDo Title"
+      #newToDo
+      (keyup.enter)="addToDo(newToDo.value); newToDo.value = ''"
+    />
   </div>
 </div>
