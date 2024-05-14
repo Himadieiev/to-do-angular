@@ -2,7 +2,11 @@
   <h1>ToDo App</h1>
 </header>
 
-<main>
+<main class="main">
+  <div class="main__control">
+    <button (click)="addGroup()" class="button">Added Group</button>
+  </div>
+
   <app-todo-group
     [todoGroup]="group"
     [index]="i"
