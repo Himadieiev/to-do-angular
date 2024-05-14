@@ -3,7 +3,8 @@
     <div class="group__title-name">
       @if (isShowTitle) {
       <h2>{{ todoGroup.title }}</h2>
-      <button (click)="isShowTitle = false" class="button">Edit</button>
+      <button class="group__btn-edit button" (click)="isShowTitle = false">Edit</button>
+      <button class="group__btn-del button" (click)="removeGroup()">Delete</button>
       } @else {
       <input
         type="text"

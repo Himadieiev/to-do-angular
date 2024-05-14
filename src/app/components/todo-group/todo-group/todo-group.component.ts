@@ -29,6 +29,8 @@ export class TodoGroupComponent implements OnInit {
     index: number;
   }>();
 
+  @Output() deleteGroup = new EventEmitter<number>();
+
   public isShowTitle = true;
 
   public groupTitle?: string;
@@ -37,6 +39,10 @@ export class TodoGroupComponent implements OnInit {
     this.isShowTitle = true;
 
     this.changeTitleEvent.emit({ value: this.groupTitle!, index: this.index });
+  }
+
+  public removeGroup(): void {
+    this.deleteGroup.emit(this.index);
   }
 
   ngOnInit(): void {

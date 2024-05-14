@@ -2,6 +2,14 @@
   margin: 50px auto;
   width: 35vw;
 
+  & .group__btn-edit {
+    background-color: rgb(192, 241, 192);
+  }
+
+  & .group__btn-del {
+    background-color: rgb(238, 155, 155);
+  }
+
   &__title {
     margin-bottom: 20px;
 

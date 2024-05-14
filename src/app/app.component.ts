@@ -51,4 +51,8 @@ export class AppComponent {
   public handleChangeTitle(value: { value: string; index: number }): void {
     this.todoGroups[value.index].title = value.value;
   }
+
+  public handleDeleteGroup(value: number) {
+    this.todoGroups.splice(value, 1);
+  }
 }
