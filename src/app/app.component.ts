@@ -1,13 +1,42 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
+import { TodoGroupComponent } from './components/todo-group/todo-group/todo-group.component';
+import { TodoGroup, TodoStatus } from './interfaces/todo.interface';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [CommonModule, RouterOutlet, TodoGroupComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'to-do-angular';
+  public todoGroups: TodoGroup[];
+
+  constructor() {
+    this.todoGroups = [
+      {
+        title: 'First Group',
+        items: [
+          {
+            title: 'First Meeting',
+            description: 'To meet with friends',
+            status: TodoStatus.NOT_STARTED,
+          },
+          {
+            title: 'First Walking',
+            description: 'To walk in the city',
+            status: TodoStatus.IN_PROGRESS,
+          },
+          {
+            title: 'First Watching',
+            description: 'To watch TV show',
+            status: TodoStatus.DONE,
+          },
+        ],
+      },
+    ];
+  }
 }
