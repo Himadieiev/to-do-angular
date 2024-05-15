@@ -60,4 +60,16 @@ export class AppComponent {
   public handleAddToDo(value: { item: TodoItem; index: number }) {
     this.todoGroups[value.index].items?.push(value.item);
   }
+
+  public handleChangeDescription(value: {
+    description: string;
+    indexGroup: number;
+    indexItem: number;
+  }) {
+    this.todoGroups[value.indexGroup].items[value.indexItem].description = value.description;
+  }
+
+  public handleChangeStatus(value: { status: TodoStatus; indexGroup: number; indexItem: number }) {
+    this.todoGroups[value.indexGroup].items[value.indexItem].status = value.status;
+  }
 }

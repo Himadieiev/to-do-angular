@@ -41,16 +41,26 @@
     @for (item of todoGroup.items; track item.title; let i = $index) {
     <ng-container [ngSwitch]="item.status">
       <app-item-not-started
+        (eventChangeDescription)="handleChangeItemDescription($event)"
+        (changeStatus)="handleChangeStatus($event)"
         [todoItem]="item"
         [index]="i"
         *ngSwitchCase="'not_started'"
       ></app-item-not-started>
       <app-item-in-progress
+        (eventChangeDescription)="handleChangeItemDescription($event)"
+        (changeStatus)="handleChangeStatus($event)"
         [todoItem]="item"
         [index]="i"
         *ngSwitchCase="'in_progress'"
       ></app-item-in-progress>
-      <app-item-done [todoItem]="item" [index]="i" *ngSwitchCase="'done'"></app-item-done>
+      <app-item-done
+        (eventChangeDescription)="handleChangeItemDescription($event)"
+        (changeStatus)="handleChangeStatus($event)"
+        [todoItem]="item"
+        [index]="i"
+        *ngSwitchCase="'done'"
+      ></app-item-done>
     </ng-container>
     }
 

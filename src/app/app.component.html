@@ -11,6 +11,8 @@
     (changeTitleEvent)="handleChangeTitle($event)"
     (deleteGroup)="handleDeleteGroup($event)"
     (addNewToDo)="handleAddToDo($event)"
+    (changeDescription)="handleChangeDescription($event)"
+    (changeItemStatus)="handleChangeStatus($event)"
     [todoGroup]="group"
     [index]="i"
     *ngFor="let group of todoGroups; let i = index"

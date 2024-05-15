@@ -1,4 +1,24 @@
 <div class="item">
-  <img src="../../../../assets/icons/check.svg" alt="done" class="item__img" />
-  <span class="item__title">{{ todoItem.title }}</span>
+  <div class="item__header">
+    <img src="../../../../assets/icons/check.svg" alt="done" class="item__img" />
+    <span class="item__title">{{ todoItem.title }}</span>
+    <button
+      [disabled]="todoItem.description === ''"
+      class="item__arrow"
+      (click)="isShowDescription = !isShowDescription"
+    >
+      @if (isShowDescription) {&#9650;} @else {&#9660;}
+    </button>
+  </div>
+
+  @if (isShowDescription) {
+  <div class="item__description">
+    <textarea class="textarea" [(ngModel)]="description" rows="5"></textarea>
+
+    <div>
+      <button class="button" (click)="emitChangeStatus(todoStatus.IN_PROGRESS)">In Progress</button>
+      <button class="button">Delete</button>
+    </div>
+  </div>
+  }
 </div>
